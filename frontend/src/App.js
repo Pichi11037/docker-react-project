@@ -11,7 +11,7 @@ class App extends Component {
           <h2>Welcome to React</h2>
         </div>
         <p className="App-intro">
-          Docker deploying live? OK now deploying live!
+          Docker deploying live? OK now deploying live! Is this still live? ok, it is :)
         </p>
       </div>
     );
