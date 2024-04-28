@@ -15,6 +15,6 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
-      run: docker build frontend/. --file frontend/Dockerfile.dev --tag my-image-name:$(date +%s)
+      run: docker build frontend/. --file frontend/Dockerfile.dev -t Pichi11037/docker-pipeline
     - name: Running Docker container
-      run: docker run -e CI=true my-image-name:$(date +%s) npm run test
+      run: docker run -e CI=true Pichi11037/docker-pipeline npm run test
