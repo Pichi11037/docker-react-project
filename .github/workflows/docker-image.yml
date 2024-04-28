@@ -17,4 +17,4 @@ jobs:
     - name: Build the Docker image
       run: docker build -t pichi11037/docker-pipeline -f frontend/Dockerfile.dev frontend/.
     - name: Running Docker container
-      run: docker run -e CI=true pichi11037/docker-pipeline
+      run: docker run -e CI=true pichi11037/docker-pipeline npm run test
