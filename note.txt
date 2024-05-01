@@ -1,0 +1,24 @@
+for this deployment, you will need to have:
+
+AWS:
+- EC2 IAM Instance Profile with the following policies:
+	- AWSElasticBeanstalkWebTier
+	- AWSElasticBeanstalkWorkerTier
+	- AWSElasticBeanstalkMulticontainerDocker
+	- name: aws-elasticbeanstalk-ec2-role
+- Elastic Beanstalk Environment:
+	- Platform: Docker running on 64but Amazon Linux 2
+	- Free tier eligible
+	- Select create and use new service role and name it 'aws-beanstalk-service-role'
+	- Set the EC2 instance profile to the one just created 'aws-beanstalk-ec2-role'
+- Change the S3 bucket that was automatically created from te elastic beanstalk environment:
+	- Copy the name to change it in the .github/workflows/deploy.yml
+	- Modify permissions, in Object Ownership:
+		- ACLs should be enabled.
+		- Change Bucket owner preferred to Object Writer.
+- Create a IAM user:
+	- Add the policy: AdministratorAccess-AWSElasticBeanstalk
+	- Create an access key and secret key. Saved them and store them as secrets in Github repository.
+- Also save your docker credentials (user and pass) as secrets in the Github repository.
+
+Most of these resources can be deployed and managed with Terraform. In a future update I'll make a deployment for it.
